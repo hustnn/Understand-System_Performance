@@ -40,6 +40,7 @@ Wall Time - I think there is not better explanation than this one:
 "In the context of a task being performed on a computer, wall clock time or wall time is a measure of how much real time that elapses from start to end, including time that passes due to programmed (artificial) delays or waiting for resources to become available. In other words, it is the difference between the time at which a task finishes and the time at which the task started." (Wikipedia)
 
 A good example for this is a thread dispatcher. Suppose you have a couple of threads, and one thread dispatcher waiting for tasks. Waiting for tasks means is actually actively listening to something...listening to a socket for example. This actively listening on the socket for incoming requests will be measured as CPU Time, and WILL APPEAR as the dominating CPU consumer in your CPU Consumer list. That does not mean that this is a problem, it is just the time reported by the CPU from starting that task, to finishing that task. It is a task and not a piece of your code, right?
+
 CPU Own Time - This is the time actually spent by CPU executing method code, and this is the one you are most interested in. This is where you have to dig: for invocation count vs cpu own time. A low invocations count with a large cpu own time usually means your code is unefficient.
 
 I hope this shades some light in the darkness of CPU time measuring when it comes to performance tuning and testing.
